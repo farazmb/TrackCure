@@ -1,0 +1,6 @@
+@QTrack_HostAddress = http://localhost:5181
+
+GET {{QTrack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
