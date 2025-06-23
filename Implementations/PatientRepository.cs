@@ -13,7 +13,6 @@ namespace TrackCure.Implementations
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
         }
 
-
         public async Task<bool> DeletePatient(int id)
         {
             using var connection = new SqlConnection(_connectionString);

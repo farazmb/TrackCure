@@ -1,4 +1,7 @@
-﻿using Dapper;
+﻿using System.Security.Claims;
+using Dapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using TrackCure.Interfaces;
 using TrackCure.Models;
@@ -8,9 +11,11 @@ namespace TrackCure.Implementations
     public class DoctorAvailabilityRepository : IDoctorAvailability
     {
         private readonly string _connectionString;
-        public DoctorAvailabilityRepository(IConfiguration configuration)
+        private readonly IDoctorAvailability _doctorAvailability;
+        public DoctorAvailabilityRepository(IConfiguration configuration, IDoctorAvailability doctorAvailability)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
+            _doctorAvailability = doctorAvailability;
         }
         public async Task<bool> AddAvailabilityAsync(DoctorAvailability availability)
         {
@@ -20,17 +25,24 @@ namespace TrackCure.Implementations
             return rows > 0;
         }
 
-        public async Task<IEnumerable<DoctorAvailability>> GetAvailabilityByDoctor(int Id)
+        [HttpGet("getbyid")]
+        [Authorize(Roles = "Doctor")]
+        public async Task<ActionResult<DoctorAvailability>> GetAvailabilityByDoctor()
         {
-            using var connection = new SqlConnection(_connectionString);
-            var sql = "SELECT * FROM [DoctorAvailabilty] WHERE UserId = @UserId";
-            return await  connection.QueryAsync<DoctorAvailability>(sql, new {UserId = Id});
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var availability = await _doctorAvailability.GetAvailabilityByDoctor(userId);
+
+            if (availability == null)
+                return NotFound("No availability found for this doctor");
+
+            return Ok(availability);
         }
+
 
         public async Task<bool> DeleteAvailability(int id)
         {
             using var connection = new SqlConnection(_connectionString);
-            var sql = "DELETE FROM [DoctorAvailabilty] WHERE AvailabilityId = AvailabilityId";
+            var sql = "DELETE FROM [DoctorAvailabilty] WHERE UserId = @UserId";
             var rows = await connection.ExecuteAsync(sql, new { AvailabilityId = id });
             return rows > 0;
         }   
@@ -38,10 +50,10 @@ namespace TrackCure.Implementations
         public async Task<bool> UpdateAvailability(int id, DoctorAvailability doctorAvailability)
         {
             using var connection = new SqlConnection(_connectionString);
-            var sql = "UPDATE [DoctorAvailabilty] SET AvailableDate = @AvailableDate, StartTime = @StartTime, EndTime = @EndTime WHERE AvailabilityId = @AvailabilityId";
+            var sql = "UPDATE [DoctorAvailabilty] SET AvailableDate = @AvailableDate, StartTime = @StartTime, EndTime = @EndTime WHERE UserId = @UserId";
             var rows = await connection.ExecuteAsync(sql, new
             {
-                AvailabilityId = id,
+                UserId = id,
                 AvailableDate = doctorAvailability.AvailableDate,
                 StartTime = doctorAvailability.StartTime,
                 EndTime = doctorAvailability.EndTime

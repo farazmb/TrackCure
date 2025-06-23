@@ -46,6 +46,9 @@ namespace TrackCure.Controllers
             return BadRequest("Failed to add availability");
         }
 
+
+
+
         [HttpGet("getbyid")]
         [Authorize(Roles = "Doctor")]
         public async Task<ActionResult<DoctorAvailability>> GetAvailabilityByDoctor(int id)
@@ -58,6 +61,8 @@ namespace TrackCure.Controllers
 
             return Ok(availability);
         }
+
+
 
 
         [HttpPut("update")]
