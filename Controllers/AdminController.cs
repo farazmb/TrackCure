@@ -20,14 +20,14 @@ namespace AuthWebAPIDemo.Controllers
         private readonly JwtService _jwtService;
         private readonly IReceptionistRepository _receptionistRepository;
 
-
+        
         public AdminController(IConfiguration configuration, JwtService jwtService, IReceptionistRepository receptionistRepository  )
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection")!;
             _jwtService = jwtService;
             _receptionistRepository = receptionistRepository;
         }
-
+        //register receptionist endpoint
         [HttpPost("register-receptionist")]
         [Authorize(Roles = "Admin")]  
         public async Task<ActionResult> Register(RegisterDto request)

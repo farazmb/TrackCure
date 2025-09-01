@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6SWD8ADbfS0=",
+  "dgSpecHash": "8ntN6euNo3w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\TrackCure.csproj",
+  "projectFilePath": "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\TrackCure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Faraz\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Faraz\\.nuget\\packages\\azure.identity\\1.13.2\\azure.identity.1.13.2.nupkg.sha512",
