@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrackCure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+323f91ae971ec0e4ab541d34fef4fe42b10a9dbf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8938fec8cbe894d1528ad763361aa826e67100a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrackCure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrackCure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
