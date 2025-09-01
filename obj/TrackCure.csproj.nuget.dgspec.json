@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\TrackCure.csproj": {}
+    "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\TrackCure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\TrackCure.csproj": {
+    "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\TrackCure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\TrackCure.csproj",
+        "projectUniqueName": "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\TrackCure.csproj",
         "projectName": "TrackCure",
-        "projectPath": "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\TrackCure.csproj",
+        "projectPath": "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\TrackCure.csproj",
         "packagesPath": "C:\\Users\\Faraz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Faraz\\source\\repos\\QTrack\\QTrack\\obj\\",
+        "outputPath": "C:\\Users\\Faraz\\Source\\Repos\\TrackCure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
